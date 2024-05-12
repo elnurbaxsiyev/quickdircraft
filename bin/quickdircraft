@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+const { execSync } = require('child_process');
+const path = require('path');
+
+const scriptPath = path.join(__dirname, '../quick.js');
+
+execSync(`node ${scriptPath}`, { stdio: 'inherit' });

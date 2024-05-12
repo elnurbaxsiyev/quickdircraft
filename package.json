@@ -1,0 +1,30 @@
+{
+  "name": "quickdircraft",
+  "version": "0.0.9",
+  "description": "A quick and easy folder structure creator. Instantly generate the directory layout for your project and spend more time coding and less time organizing.",
+  "main": "index.js",
+  "bin": {
+    "quickdircraft": "./quick.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "quickdircraft": "node quick.js" 
+  },  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elnurbaxsiyev/quickdircraft.git"
+  },
+  "keywords": [
+    "folder-structure",
+    "quick-setup",
+    "organize",
+    "efficient-development",
+    "code-scaffolding"
+  ],
+  "author": "elnurbxs",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/elnurbaxsiyev/quickdircraft/issues"
+  },
+  "homepage": "https://github.com/elnurbaxsiyev/quickdircraft#readme"
+}
