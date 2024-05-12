@@ -1,6 +1,6 @@
 {
   "name": "quickdircraft",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A quick and easy folder structure creator. Instantly generate the directory layout for your project and spend more time coding and less time organizing.",
   "main": "index.js",
   "bin": {
