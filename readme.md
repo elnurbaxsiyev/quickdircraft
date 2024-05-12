@@ -8,7 +8,7 @@ QuickDirCraft is a quick and easy folder structure creator for your projects. Wi
 To use QuickDirCraft, you must have Node.js and npm installed. Then, you can install QuickDirCraft globally by running the following command in your terminal:
 
 ```
-
+npm i quickdircraft
 npm i react-helmet
 npm i react-router
 npm i react-router-dom
