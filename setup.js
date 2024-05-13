@@ -1,40 +1,55 @@
-const { error } = require('console');
+const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const pages=(str)=>{
+// Gerekli paketleri kur
+console.log('Installing required packages...');
+exec('npm install react-router react-router-dom json-server react-helmet', (error, stdout, stderr) => {
+    if (error) {
+        console.error('Error installing packages:', error);
+        return;
+    }
+    console.log('Packages installed successfully.');
+    
+    // Quick.js dosyasını çalıştır
 
-    value=`
-import React, { useContext } from 'react'
-import { Helmet } from 'react-helmet'
-import MainContext from '../../../context/context'
+    console.log('Creating directory structure...');
+    const rootDirectory = 'src';
 
-const ${str} = () => {
-    const {data,setdata} = useContext(MainContext)
-    return (
-    <>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>${str}</title>
-                {/* <link rel="icon" type="image/x-icon" href="x"></link> favicon*/}
-                <link rel="canonical" href="http://mysite.com/example" />
-            </Helmet>
-            <div>${str} page
-            </div>
-    </>
-    )
-}
+    // Object representing the file structure
+    const pages=(str)=>{
 
-export default ${str}
-    `
+        value=`
+    import React, { useContext } from 'react'
+    import { Helmet } from 'react-helmet'
+    import MainContext from '../../../context/context'
+    
+    const ${str} = () => {
+        const {data,setdata} = useContext(MainContext)
+        return (
+        <>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>${str}</title>
+                    {/* <link rel="icon" type="image/x-icon" href="x"></link> favicon*/}
+                    <link rel="canonical" href="http://mysite.com/example" />
+                </Helmet>
+                <div>${str} page
+                </div>
+        </>
+        )
+    }
+    
+    export default ${str}
+        `
+    
+    
+        return value
+    
+    }
+    
 
-
-    return value
-
-}
-
-// Object representing the file structure
-const files = {
+    const files = {
         //* src/files
         components: {
             
@@ -47,7 +62,7 @@ export default MainContext
 `
         },
         data: {
-            "data.json": `
+            "db.json": `
 {
     "products": [
     {
@@ -253,27 +268,38 @@ root.render(
     
 };
 
-// Function to create files
-function createFiles(directory, files) {
-    // Iterate over all keys (folders/files)
-    Object.keys(files).forEach(key => {
-        // Create file path
-        const filePath = path.join(directory, key);
+    // Function to create files
+    function createFiles(directory, files) {
+        // Iterate over all keys (folders/files)
+        Object.keys(files).forEach(key => {
+            // Create file path
+            const filePath = path.join(directory, key);
 
-        // If the key is an object, create a directory and process its content
-        if (typeof files[key] === 'object') {
-            fs.mkdirSync(filePath, { recursive: true });
-            createFiles(filePath, files[key]);
-        } else { // If the key is a file, create the file and write its content
-            fs.writeFileSync(filePath, files[key]);
+            // If the key is an object, create a directory and process its content
+            if (typeof files[key] === 'object') {
+                fs.mkdirSync(filePath, { recursive: true });
+                createFiles(filePath, files[key]);
+            } else { // If the key is a file, create the file and write its content
+                fs.writeFileSync(filePath, files[key]);
+            }
+        });
+    }
+
+    // Create files
+    createFiles(rootDirectory, files);
+
+    console.log("Files successfully created.");
+
+    console.log('quick.js executed successfully.');
+    
+    // quickdircraft paketini kaldır
+    console.log('Uninstalling quickdircraft...');
+    exec('npm uninstall -g quickdircraft', (error, stdout, stderr) => {
+        if (error) {
+            console.error('Error uninstalling quickdircraft:', error);
+            return;
         }
+        console.log('quickdircraft deleted successfully.');
     });
-}
 
-// Root directory
-const rootDirectory = 'src';
-
-// Create files
-createFiles(rootDirectory, files);
-
-console.log("Files successfully created.");
+});

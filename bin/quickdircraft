@@ -3,6 +3,6 @@
 const { execSync } = require('child_process');
 const path = require('path');
 
-const scriptPath = path.join(__dirname, '../quick.js');
+const scriptPath = path.join(__dirname, '../setup.js'); 
 
 execSync(`node ${scriptPath}`, { stdio: 'inherit' });

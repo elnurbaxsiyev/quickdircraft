@@ -1,15 +1,15 @@
 {
   "name": "quickdircraft",
-  "version": "0.0.10",
+  "version": "0.0.21",
   "description": "A quick and easy folder structure creator. Instantly generate the directory layout for your project and spend more time coding and less time organizing.",
-  "main": "index.js",
+  "main": "setup.js",
   "bin": {
-    "quickdircraft": "./quick.js"
+    "qdir": "bin/quickdircraft"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "quickdircraft": "node quick.js" 
-  },  
+    "": "node bin/quickdircraft"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elnurbaxsiyev/quickdircraft.git"
@@ -26,5 +26,11 @@
   "bugs": {
     "url": "https://github.com/elnurbaxsiyev/quickdircraft/issues"
   },
-  "homepage": "https://github.com/elnurbaxsiyev/quickdircraft#readme"
+  "homepage": "https://github.com/elnurbaxsiyev/quickdircraft#readme",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.0",
+    "react-helmet": "^6.1.0",
+    "react-router": "^6.23.1",
+    "react-router-dom": "^6.23.1"
+  }
 }

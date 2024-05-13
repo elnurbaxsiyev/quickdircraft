@@ -6,21 +6,25 @@ QuickDirCraft is a quick and easy folder structure creator for your projects. Wi
 ## Installation
 
 To use QuickDirCraft, you must have Node.js and npm installed. Then, you can install QuickDirCraft globally by running the following command in your terminal:
-//!installl
+
 ```
 
-npm i react-helmet
-npm i react-router
-npm i react-router-dom
 ```
 
 ## Usage
 
 To use QuickDirCraft, simply run the following command in your terminal:
+case 1
+```
 
-
-This command will create a "src" folder in your project's root directory and add a file named "kullanildigi_dosya.js" inside it.
-
+   npm install -g quickdircraft
+   qdir
+```
+case 2
+```
+ npm  i quickdircraft
+ node run node_modules\quickdircraft\setup.js
+```
 
 
 
@@ -34,20 +38,3 @@ This project is licensed under the MIT License. For more information, see the [L
 
 
   
-## use
-* 1.step 
-```
-   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "quickdircraft": "node node_modules/quickdircraft/quick.js" 
-  },  
-```
-
-* 2.step
-```
- npm run quickdircraft  
-```
-  or
-```
-  node node_modules/quickdircraft/quick.js
-```
